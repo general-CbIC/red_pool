@@ -19,6 +19,9 @@ defmodule RedPool.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:redix, "~> 1.0"},
+      {:poolex, "~> 0.9.0"},
+
       # Development dependencies
       {:credo, ">= 0.0.0", only: [:dev], runtime: false},
       {:dialyxir, ">= 0.0.0", only: [:dev], runtime: false},
