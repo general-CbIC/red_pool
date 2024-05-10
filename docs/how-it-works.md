@@ -33,3 +33,37 @@ graph LR
   red_pool_interfaces --> Poolex
   Poolex --> redis_cluster
 ```
+
+When the right worker was chosen the first time.
+
+```mermaid
+sequenceDiagram
+  You ->> RedPool: execute some insert command
+  RedPool ->> State: get pool id for worker (RoundRobin)
+  State -->> RedPool: pool id
+  RedPool ->> Pool: run command
+  Pool ->> Redis: run command
+  Redis -->> Pool: result
+  Pool -->> RedPool: result
+  RedPool -->> You: result
+```
+
+When Redis informed that it is necessary to record through another worker.
+
+```mermaid
+sequenceDiagram
+  You ->> RedPool: execute some insert command
+  RedPool ->> State: get pool id for worker (RoundRobin)
+  State -->> RedPool: pool id
+  RedPool ->> Pool: run command
+  Pool ->> Redis: run command
+  Redis -->> Pool: MOVED port
+  Pool -->> RedPool: MOVED port
+  RedPool ->> State: Get pool id by port
+  State -->> RedPool: pool id
+  RedPool ->> Pool: run command
+  Pool ->> Redis: run command
+  Redis -->> Pool: result
+  Pool -->> RedPool: result
+  RedPool -->> You: result
+```
