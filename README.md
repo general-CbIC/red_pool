@@ -1,6 +1,6 @@
 # RedPool
 
-![red pull](https://github.com/general-CbIC/red_pool/assets/3294891/4105cca2-7605-4107-9afe-75ad8dcd008d)
+![red pool](https://github.com/general-CbIC/red_pool/assets/3294891/4105cca2-7605-4107-9afe-75ad8dcd008d)
 
 ## Features
 
