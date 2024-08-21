@@ -3,12 +3,12 @@ defmodule RedPoolTest do
   doctest RedPool
 
   test "cluster setup check" do
-    {:ok, node_0} = Redix.start_link(host: "localhost", port: 7010, password: "bitnami")
-    {:ok, node_1} = Redix.start_link(host: "localhost", port: 7011, password: "bitnami")
-    {:ok, node_2} = Redix.start_link(host: "localhost", port: 7012, password: "bitnami")
-    {:ok, node_3} = Redix.start_link(host: "localhost", port: 7013, password: "bitnami")
-    {:ok, node_4} = Redix.start_link(host: "localhost", port: 7014, password: "bitnami")
-    {:ok, node_5} = Redix.start_link(host: "localhost", port: 7015, password: "bitnami")
+    {:ok, node_0} = Redix.start_link(host: "localhost", port: 7010)
+    {:ok, node_1} = Redix.start_link(host: "localhost", port: 7011)
+    {:ok, node_2} = Redix.start_link(host: "localhost", port: 7012)
+    {:ok, node_3} = Redix.start_link(host: "localhost", port: 7013)
+    {:ok, node_4} = Redix.start_link(host: "localhost", port: 7014)
+    {:ok, node_5} = Redix.start_link(host: "localhost", port: 7015)
 
     assert {:ok, cluster_nodes} = Redix.command(node_0, ["CLUSTER", "NODES"])
     cluster_nodes_rows = String.split(cluster_nodes, "\n", trim: true)
