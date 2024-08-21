@@ -40,6 +40,15 @@ jobs:
             otp: '27'
     steps:
       - uses: actions/checkout@v4
+      - uses: vishnudxb/redis-cluster@1.0.9
+        with:
+          master1-port: 7010
+          master2-port: 7011
+          master3-port: 7012
+          slave1-port: 7013
+          slave2-port: 7014
+          slave3-port: 7015
+          sleep-duration: 5
       - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.otp}}
@@ -53,6 +62,15 @@ jobs:
     name: Static analysis
     steps:
       - uses: actions/checkout@v4
+      - uses: vishnudxb/redis-cluster@1.0.9
+        with:
+          master1-port: 7010
+          master2-port: 7011
+          master3-port: 7012
+          slave1-port: 7013
+          slave2-port: 7014
+          slave3-port: 7015
+          sleep-duration: 5
       - name: Set mix.lock file hash
         run: |
           mix_hash="${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}"
