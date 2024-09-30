@@ -20,7 +20,7 @@ defmodule RedPool.MixProject do
   defp deps do
     [
       {:redix, "~> 1.0"},
-      {:poolex, "~> 0.10.0"},
+      {:poolex, "~> 1.0.0"},
 
       # Development dependencies
       {:credo, ">= 0.0.0", only: [:dev], runtime: false},
