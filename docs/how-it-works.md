@@ -57,9 +57,9 @@ sequenceDiagram
   State -->> RedPool: pool id
   RedPool ->> Pool: run command
   Pool ->> Redis: run command
-  Redis -->> Pool: MOVED port
-  Pool -->> RedPool: MOVED port
-  RedPool ->> State: Get pool id by port
+  Redis -->> Pool: MOVED ip:port
+  Pool -->> RedPool: MOVED ip:port
+  RedPool ->> State: Get pool id by ip:port
   State -->> RedPool: pool id
   RedPool ->> Pool: run command
   Pool ->> Redis: run command
