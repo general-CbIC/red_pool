@@ -1,4 +1,4 @@
-# Implementation plan
+# Implementation roadmap
 
 ## First iteration (MVP)
 
