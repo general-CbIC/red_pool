@@ -5,22 +5,24 @@ defmodule RedPool do
 
   use GenServer, shutdown: :infinity
 
-  # TODO: describe options type and write spec
+  @type red_pool_option() :: {:pool_name, GenServer.name()}
+
+  @spec start(list(red_pool_option())) :: GenServer.on_start()
   def start(opts) do
-    # TODO: change temporary name `RedPool` to configurable
-    GenServer.start(__MODULE__, opts, name: RedPool)
+    pool_name = Keyword.fetch!(opts, :pool_name)
+    GenServer.start(__MODULE__, opts, name: pool_name)
   end
 
-  # TODO: describe options type and write spec
+  @spec start_link(list()) :: GenServer.on_start()
   def start_link(opts) do
-    # TODO: change temporary name `RedPool` to configurable
-    GenServer.start_link(__MODULE__, opts, name: RedPool)
+    pool_name = Keyword.fetch!(opts, :pool_name)
+    GenServer.start_link(__MODULE__, opts, name: pool_name)
   end
 
-  # TODO: describe options type and write spec
+  @spec child_spec(list()) :: Supervisor.child_spec()
   def child_spec(opts) do
-    # TODO: change temporary name `RedPool` to configurable
-    %{id: RedPool, start: {RedPool, :start_link, [opts]}}
+    pool_name = Keyword.fetch!(opts, :pool_name)
+    %{id: pool_name, start: {RedPool, :start_link, [opts]}}
   end
 
   @impl GenServer
