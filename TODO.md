@@ -2,7 +2,7 @@
 
 ## First iteration (MVP)
 
-- [ ] Describe main library worker
+- [x] Describe main library worker
 - [ ] Launch a pool for each given redis worker
   - [ ] Configure registry for pool names
   - [ ] Add posibility to configure pool's size
