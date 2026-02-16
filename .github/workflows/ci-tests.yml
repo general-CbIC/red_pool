@@ -32,7 +32,7 @@ jobs:
             otp: '27'
     steps:
       - uses: actions/checkout@v6
-      - uses: vishnudxb/redis-cluster@1.0.9
+      - uses: vishnudxb/redis-cluster@1.10.0
         with:
           master1-port: 7010
           master2-port: 7011
@@ -54,7 +54,7 @@ jobs:
     name: Static analysis
     steps:
       - uses: actions/checkout@v6
-      - uses: vishnudxb/redis-cluster@1.0.9
+      - uses: vishnudxb/redis-cluster@1.10.0
         with:
           master1-port: 7010
           master2-port: 7011
