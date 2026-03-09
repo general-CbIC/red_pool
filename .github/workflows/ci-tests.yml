@@ -73,5 +73,5 @@ jobs:
         with:
           otp-version: "28"
           elixir-version: "1.19"
-      - run: mix do deps.get, compile
+      - run: mix do deps.get + compile
       - run: mix check
