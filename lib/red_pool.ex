@@ -6,6 +6,9 @@ defmodule RedPool do
   use GenServer, shutdown: :infinity
 
   @type red_pool_option() :: {:pool_name, GenServer.name()}
+  # startup_nodes — List of nodes from which initial bootstrapping can be done
+  # host — List of nodes from which initial bootstrapping can be done
+  # read_from_replicas — Enable read from replicas in READONLY mode. You can read possibly stale data.
 
   @spec start(list(red_pool_option())) :: GenServer.on_start()
   def start(opts) do
