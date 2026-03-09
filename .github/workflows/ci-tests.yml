@@ -31,8 +31,8 @@ jobs:
           - elixir: '1.17'
             otp: '27'
     steps:
-      - uses: actions/checkout@v4
-      - uses: vishnudxb/redis-cluster@1.0.9
+      - uses: actions/checkout@v6
+      - uses: vishnudxb/redis-cluster@1.10.0
         with:
           master1-port: 7010
           master2-port: 7011
@@ -53,8 +53,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Static analysis
     steps:
-      - uses: actions/checkout@v4
-      - uses: vishnudxb/redis-cluster@1.0.9
+      - uses: actions/checkout@v6
+      - uses: vishnudxb/redis-cluster@1.10.0
         with:
           master1-port: 7010
           master2-port: 7011
@@ -68,7 +68,7 @@ jobs:
           mix_hash="${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}"
           echo "mix_hash=$mix_hash" >> $GITHUB_ENV
       - name: Cache PLT files
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             _build/dev/*.plt
